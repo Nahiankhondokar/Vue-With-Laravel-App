@@ -21,7 +21,7 @@ Route::get('/', function () {
 // applicaiton all routes
 Route::get('/show', [CandidateController::class, 'index']);
 Route::get('/coins', [CandidateController::class, 'getCoins']);
-// Route::post('candidates-contact', [CandidateController::class, 'contact']);
 
-// contact condidate route
-Route::get('/contact/{id}', [CandidateController::class, 'contact']);
+// contact & hire condidate route
+Route::get('/contact/{id}', [CandidateController::class, 'contactCandidate']);
+Route::get('/hire/{id}', [CandidateController::class, 'hireCandidate']);

@@ -23,17 +23,20 @@
             <td>{{ item.name }}</td>
             <td>{{ item.email }}</td>
             <td>{{ item.description }}</td>
-            <td>Job Type</td>
+            <td>{{ item.hired ? "Hired" : "Not Hired" }}</td>
             <td width="15%">
               <a
                 href=""
                 class="btn btn-info btn-sm"
-                candidate_id=""
-                id="contact-btn"
                 @click.prevent="contactButton(item.id)"
                 >Contact</a
               >
-              <a href="" class="btn btn-success btn-sm">Hired</a>
+              <a
+                href=""
+                class="btn btn-success btn-sm"
+                @click.prevent="hireButton(item.id)"
+                >Hired</a
+              >
             </td>
           </tr>
         </tbody>
@@ -52,20 +55,53 @@ export default {
   },
   methods: {
     showCandidate() {
-      axios.get("/show").then((res) => {
-        this.candidate = res.data;
-      });
+      try {
+        axios.get("/show").then((res) => {
+          this.candidate = res.data;
+        });
+      } catch ($error) {
+        console.log($error);
+      }
     },
     getCoins() {
-      axios.get("/coins").then((res) => {
-        this.coins = res.data;
-      });
+      try {
+        axios.get("/coins").then((res) => {
+          this.coins = res.data;
+        });
+      } catch ($error) {
+        console.log($error);
+      }
     },
     contactButton(id) {
       axios.get(`/contact/${id}`).then((res) => {
         let type = res.data.type;
         let message = res.data.message;
         this.getCoins();
+
+        if (type == "success") {
+          this.$toast.success({
+            title: type,
+            message,
+          });
+        } else if (type == "warn") {
+          this.$toast.warn({
+            title: type,
+            message,
+          });
+        } else {
+          this.$toast.error({
+            title: type,
+            message,
+          });
+        }
+      });
+    },
+    hireButton(id) {
+      axios.get(`/hire/${id}`).then((res) => {
+        let type = res.data.type;
+        let message = res.data.message;
+        this.getCoins();
+        this.showCandidate();
 
         if (type == "success") {
           this.$toast.success({

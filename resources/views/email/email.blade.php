@@ -15,9 +15,11 @@
         <span>
             <strong>Name : </strong> {{$name}}
         </span>
+        <br>
         <span>
             <strong>Name : </strong> {{$email}}
         </span>
+        <br>
         <span>
             <strong>Message : </strong> {{$msg}}
         </span>
