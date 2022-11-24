@@ -5,6 +5,7 @@
 
 At first, we have to download this file. then run to local machine. instructions are given below,
    - Download file
+   - Setup .env file
    - Run composer install 
    - Run php artisan key:generate
    - Run php artisan migrate
