@@ -24,7 +24,7 @@
             <td>{{ item.name }}</td>
             <td>{{ item.email }}</td>
             <td>{{ item.description }}</td>
-            <td>{{ item.hired ? "Hired" : "Not Hired" }}</td>
+            <td width="10%">{{ item.hired ? "Hired" : "Not Hired" }}</td>
             <td width="15%">
               <a
                 href=""

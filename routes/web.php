@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// default route
 Route::get('/', function () {
     return view('candidates.index');
 });

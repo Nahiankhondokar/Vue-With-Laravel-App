@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>MZT test assignment</title>
+      <title>Coding Test</title>
 
         <!-- Fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,8 +22,6 @@
    </head>
    <body>
       <div id="app">
-     
-         <app-header></app-header>
 
          <router-view></router-view>
 
