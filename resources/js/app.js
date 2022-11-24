@@ -1,10 +1,10 @@
 import Vue from "vue";
 import routes from "./routes/route";
-// window.Vue = require("vue").default;
 require("./bootstrap");
 import CxltToastr from "cxlt-vue2-toastr";
 import "cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css";
 
+// toaster package
 var toastrConfigs = {
   position: "top right",
   showDuration: 1000,
@@ -15,8 +15,9 @@ var toastrConfigs = {
 };
 Vue.use(CxltToastr, toastrConfigs);
 
-Vue.component("app-header", require("./components/Header.vue").default);
+// Vue.component("app-header", require("./components/Header.vue").default);
 
+// main app initialize
 const app = new Vue({
   el: "#app",
   router: routes,
